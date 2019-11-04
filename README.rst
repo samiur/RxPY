@@ -7,7 +7,7 @@ Simply use `rx3` instead of `rx` wherever you'd normally import modules.
 The Reactive Extensions for Python (RxPY)
 ==========================================
 
-.. image:: https://img.shields.io/pypi/v/rx.svg
+.. image:: https://img.shields.io/pypi/v/rxpy3.svg
         :target: https://pypi.python.org/pypi/RxPy3
 
 
