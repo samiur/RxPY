@@ -41,7 +41,7 @@ parameterize concurrency in data/event streams using Schedulers.
     import rx3
     from rx3 import operators as ops
 
-    source = rx.of("Alpha", "Beta", "Gamma", "Delta", "Epsilon")
+    source = rx3.of("Alpha", "Beta", "Gamma", "Delta", "Epsilon")
 
     composed = source.pipe(
         ops.map(lambda s: len(s)),
