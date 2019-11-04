@@ -1,3 +1,8 @@
+This repository renames the package references for RxPY3 from `rx` to `rx3` so that you can install both
+rx and rx3 at the same time to ease with transitioning.
+
+Simply use `rx3` instead of `rx` wherever you'd normally import modules.
+
 ==========================================
 The Reactive Extensions for Python (RxPY)
 ==========================================
@@ -29,7 +34,7 @@ RxPY:
 
 .. code:: console
 
-    pip3 install rx
+    pip3 install rx3
 
 
 About ReactiveX
@@ -43,8 +48,8 @@ parameterize concurrency in data/event streams using Schedulers.
 
 .. code:: python
 
-    import rx
-    from rx import operators as ops
+    import rx3
+    from rx3 import operators as ops
 
     source = rx.of("Alpha", "Beta", "Gamma", "Delta", "Epsilon")
 
