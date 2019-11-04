@@ -7,18 +7,8 @@ Simply use `rx3` instead of `rx` wherever you'd normally import modules.
 The Reactive Extensions for Python (RxPY)
 ==========================================
 
-.. image:: https://img.shields.io/travis/ReactiveX/RxPY.svg
-        :target: https://travis-ci.org/ReactiveX/RxPY
-
-.. image:: https://img.shields.io/coveralls/ReactiveX/RxPY.svg
-        :target: https://coveralls.io/github/ReactiveX/RxPY
-
 .. image:: https://img.shields.io/pypi/v/rx.svg
-        :target: https://pypi.python.org/pypi/Rx
-
-.. image:: https://img.shields.io/readthedocs/rxpy.svg
-        :target: https://readthedocs.org/projects/rxpy/builds/
-        :alt: Documentation Status
+        :target: https://pypi.python.org/pypi/RxPy3
 
 
 *A library for composing asynchronous and event-based programs using observable collections and
@@ -34,7 +24,7 @@ RxPY:
 
 .. code:: console
 
-    pip3 install rx3
+    pip3 install rxpy3
 
 
 About ReactiveX
