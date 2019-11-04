@@ -1,7 +1,7 @@
 import unittest
 
-import rx
-from rx.testing import TestScheduler, ReactiveTest, MockDisposable
+import rx3
+from rx3.testing import TestScheduler, ReactiveTest, MockDisposable
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed
@@ -43,7 +43,7 @@ class TestUsing(unittest.TestCase):
                 xs[0] = scheduler.create_cold_observable(
                         on_next(100, scheduler.clock), on_completed(200))
                 return xs[0]
-            return rx.using(create_resources, create_observable)
+            return rx3.using(create_resources, create_observable)
 
         results = scheduler.start(create)
 
@@ -74,7 +74,7 @@ class TestUsing(unittest.TestCase):
                 xs[0] = scheduler.create_cold_observable(
                         on_next(100, scheduler.clock), on_completed(200))
                 return xs[0]
-            return rx.using(create_resource, create_observable)
+            return rx3.using(create_resource, create_observable)
 
         results = scheduler.start(create)
 
@@ -106,7 +106,7 @@ class TestUsing(unittest.TestCase):
                 xs[0] = scheduler.create_cold_observable(
                         on_next(100, scheduler.clock), on_error(200, ex))
                 return xs[0]
-            return rx.using(create_resource, create_observable)
+            return rx3.using(create_resource, create_observable)
         results = scheduler.start(create)
 
         assert disp[0] == _d[0]
@@ -137,7 +137,7 @@ class TestUsing(unittest.TestCase):
                         on_next(100, scheduler.clock),
                         on_next(1000, scheduler.clock + 1))
                 return xs[0]
-            return rx.using(create_resource, create_observable)
+            return rx3.using(create_resource, create_observable)
         results = scheduler.start(create)
 
         assert disp[0] == _d[0]
@@ -160,9 +160,9 @@ class TestUsing(unittest.TestCase):
 
             def create_observable(d):
                 create_invoked[0] += 1
-                return rx.never()
+                return rx3.never()
 
-            return rx.using(create_resource, create_observable)
+            return rx3.using(create_resource, create_observable)
         results = scheduler.start(create)
 
         assert results.messages == [on_error(200, ex)]
@@ -186,7 +186,7 @@ class TestUsing(unittest.TestCase):
                 create_invoked[0] += 1
                 _raise(ex)
 
-            return rx.using(create_resource, create_observable)
+            return rx3.using(create_resource, create_observable)
         results = scheduler.start(create)
 
         assert results.messages == [on_error(200, ex)]

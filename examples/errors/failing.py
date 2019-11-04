@@ -9,8 +9,8 @@ looping forever.
 
 import time
 
-import rx
-from rx import operators as ops
+import rx3
+from rx3 import operators as ops
 
 
 def failing(x):

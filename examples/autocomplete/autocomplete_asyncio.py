@@ -17,9 +17,9 @@ from tornado.httpclient import AsyncHTTPClient
 from tornado.web import RequestHandler, StaticFileHandler, Application, url
 from tornado.websocket import WebSocketHandler
 
-from rx import operators as ops
-from rx.scheduler.eventloop import AsyncIOScheduler
-from rx.subject import Subject
+from rx3 import operators as ops
+from rx3.scheduler.eventloop import AsyncIOScheduler
+from rx3.subject import Subject
 
 
 def search_wikipedia(term):

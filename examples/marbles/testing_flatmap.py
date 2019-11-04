@@ -1,5 +1,5 @@
-from rx import operators as ops
-from rx.testing.marbles import marbles_testing
+from rx3 import operators as ops
+from rx3.testing.marbles import marbles_testing
 
 """
 Tests MergeMap from rxjs

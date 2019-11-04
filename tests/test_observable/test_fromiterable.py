@@ -1,7 +1,7 @@
 import unittest
 
-import rx
-from rx.testing import TestScheduler, ReactiveTest
+import rx3
+from rx3.testing import TestScheduler, ReactiveTest
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed
@@ -27,7 +27,7 @@ class TestFromIterable(unittest.TestCase):
         scheduler = TestScheduler()
 
         def create():
-            return rx.from_(iterable_finite)
+            return rx3.from_(iterable_finite)
 
         results = scheduler.start(create)
 
@@ -45,7 +45,7 @@ class TestFromIterable(unittest.TestCase):
         scheduler = TestScheduler()
 
         def create():
-            return rx.from_(iterable_finite)
+            return rx3.from_(iterable_finite)
         results = scheduler.start(create)
 
         assert results.messages == [on_completed(200)]
@@ -53,9 +53,9 @@ class TestFromIterable(unittest.TestCase):
     def test_double_subscribe_to_iterable(self):
         iterable_finite = [1, 2, 3]
         scheduler = TestScheduler()
-        obs = rx.from_(iterable_finite)
+        obs = rx3.from_(iterable_finite)
 
-        results = scheduler.start(lambda: rx.concat(obs, obs))
+        results = scheduler.start(lambda: rx3.concat(obs, obs))
 
         assert results.messages == [
             on_next(200, 1), on_next(200, 2), on_next(200, 3),
@@ -64,4 +64,4 @@ class TestFromIterable(unittest.TestCase):
 
     def test_observer_throws(self):
         with self.assertRaises(RxException):
-            rx.from_iterable([1, 2, 3]).subscribe(lambda x: _raise('ex'))
+            rx3.from_iterable([1, 2, 3]).subscribe(lambda x: _raise('ex'))

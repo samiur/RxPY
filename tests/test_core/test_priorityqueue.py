@@ -1,6 +1,6 @@
 import unittest
 
-from rx.internal import PriorityQueue
+from rx3.internal import PriorityQueue
 
 
 class TestItem():

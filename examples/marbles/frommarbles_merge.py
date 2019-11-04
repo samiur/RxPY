@@ -1,6 +1,6 @@
 
-import rx
-from rx import operators as ops
+import rx3
+from rx3 import operators as ops
 
 """
 simple example that merges two cold observables.

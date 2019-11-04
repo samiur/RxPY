@@ -1,9 +1,9 @@
 import unittest
 from datetime import timedelta
 
-import rx
-from rx import operators as ops
-from rx.testing import TestScheduler, ReactiveTest
+import rx3
+from rx3 import operators as ops
+from rx3.testing import TestScheduler, ReactiveTest
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed
@@ -58,7 +58,7 @@ class TestTimeInterval(unittest.TestCase):
         scheduler = TestScheduler()
 
         def create():
-            return rx.empty().pipe(ops.time_interval())
+            return rx3.empty().pipe(ops.time_interval())
 
         results = scheduler.start(create)
         assert results.messages == [on_completed(200)]
@@ -68,7 +68,7 @@ class TestTimeInterval(unittest.TestCase):
         scheduler = TestScheduler()
 
         def create():
-            return rx.throw(ex).pipe(ops.time_interval())
+            return rx3.throw(ex).pipe(ops.time_interval())
 
         results = scheduler.start(create)
         assert results.messages == [on_error(200, ex)]
@@ -77,7 +77,7 @@ class TestTimeInterval(unittest.TestCase):
         scheduler = TestScheduler()
 
         def create():
-            return rx.never().pipe(ops.time_interval())
+            return rx3.never().pipe(ops.time_interval())
 
         results = scheduler.start(create)
         assert results.messages == []
@@ -85,7 +85,7 @@ class TestTimeInterval(unittest.TestCase):
     def test_time_interval_default_scheduler(self):
         import datetime
         import time
-        xs = rx.of(1, 2).pipe(
+        xs = rx3.of(1, 2).pipe(
             ops.time_interval(),
             ops.pluck_attr('interval'),
         )

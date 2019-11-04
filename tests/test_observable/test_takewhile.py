@@ -1,8 +1,8 @@
 import unittest
 
-import rx
-from rx import operators as ops
-from rx.testing import TestScheduler, ReactiveTest, is_prime
+import rx3
+from rx3 import operators as ops
+from rx3.testing import TestScheduler, ReactiveTest, is_prime
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed

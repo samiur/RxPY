@@ -1,5 +1,5 @@
 
-import rx
+import rx3
 import rx.operators as ops
 """
 Use a dictionnary to convert elements declared in the marbles diagram to

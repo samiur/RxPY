@@ -4,8 +4,8 @@ import threading
 from datetime import timedelta
 from time import sleep
 
-from rx.scheduler import ThreadPoolScheduler
-from rx.internal.basic import default_now
+from rx3.scheduler import ThreadPoolScheduler
+from rx3.internal.basic import default_now
 
 
 thread_pool_scheduler = ThreadPoolScheduler()

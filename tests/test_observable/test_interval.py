@@ -1,7 +1,7 @@
 import unittest
 
-import rx
-from rx.testing import TestScheduler, ReactiveTest
+import rx3
+from rx3.testing import TestScheduler, ReactiveTest
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed
@@ -26,7 +26,7 @@ class TestTimeInterval(unittest.TestCase):
         scheduler = TestScheduler()
 
         def create():
-            return rx.interval(100)
+            return rx3.interval(100)
 
         results = scheduler.start(create)
         assert results.messages == [
@@ -38,7 +38,7 @@ class TestTimeInterval(unittest.TestCase):
     #    scheduler = TestScheduler()
 
     #    def create():
-    #        return rx.interval(0)
+    #        return rx3.interval(0)
 
     #    results = scheduler.start(create, disposed=210)
     #    assert results.messages == [
@@ -50,7 +50,7 @@ class TestTimeInterval(unittest.TestCase):
     #    scheduler = TestScheduler()
 
     #    def create():
-    #        return rx.interval(-1)
+    #        return rx3.interval(-1)
 
     #    results = scheduler.start(create, disposed=210)
     #    assert results.messages == [
@@ -62,14 +62,14 @@ class TestTimeInterval(unittest.TestCase):
         scheduler = TestScheduler()
 
         def create():
-            return rx.interval(1000)
+            return rx3.interval(1000)
 
         results = scheduler.start(create)
         assert results.messages == []
 
     def test_interval_timespan_observer_throws(self):
         scheduler = TestScheduler()
-        xs = rx.interval(1)
+        xs = rx3.interval(1)
         xs.subscribe(lambda x: _raise("ex"), scheduler=scheduler)
 
         with self.assertRaises(RxException):

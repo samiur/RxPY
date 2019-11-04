@@ -3,7 +3,7 @@ import unittest
 import asyncio
 from datetime import datetime, timedelta
 
-from rx.scheduler.eventloop import AsyncIOScheduler
+from rx3.scheduler.eventloop import AsyncIOScheduler
 
 
 class TestAsyncIOScheduler(unittest.TestCase):

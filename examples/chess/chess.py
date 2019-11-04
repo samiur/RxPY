@@ -3,9 +3,9 @@ from os.path import dirname, join
 
 import pygame
 
-from rx import operators as ops
-from rx.subject import Subject
-from rx.scheduler.mainloop import PyGameScheduler
+from rx3 import operators as ops
+from rx3.subject import Subject
+from rx3.scheduler.mainloop import PyGameScheduler
 
 
 #FORMAT = '%(asctime)-15s %(threadName)s %(message)s'

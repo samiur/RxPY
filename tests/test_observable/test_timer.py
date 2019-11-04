@@ -1,7 +1,7 @@
 import unittest
 
-import rx
-from rx.testing import TestScheduler, ReactiveTest
+import rx3
+from rx3.testing import TestScheduler, ReactiveTest
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed
@@ -26,7 +26,7 @@ class TestTimer(unittest.TestCase):
         scheduler = TestScheduler()
 
         def create():
-            return rx.timer(duetime=300)
+            return rx3.timer(duetime=300)
 
         results = scheduler.start(create)
         assert results.messages == [on_next(500, 0), on_completed(500)]
@@ -35,7 +35,7 @@ class TestTimer(unittest.TestCase):
         scheduler = TestScheduler()
 
         def create():
-            return rx.timer(0)
+            return rx3.timer(0)
 
         results = scheduler.start(create)
         assert results.messages == [on_next(200, 0), on_completed(200)]
@@ -44,7 +44,7 @@ class TestTimer(unittest.TestCase):
         scheduler = TestScheduler()
 
         def create():
-            return rx.timer(-1)
+            return rx3.timer(-1)
 
         results = scheduler.start(create)
         assert results.messages == [on_next(200, 0), on_completed(200)]
@@ -53,20 +53,20 @@ class TestTimer(unittest.TestCase):
         scheduler = TestScheduler()
 
         def create():
-            return rx.timer(1000)
+            return rx3.timer(1000)
 
         results = scheduler.start(create)
         assert results.messages == []
 
     def test_oneshot_timer_timespan_observer_throws(self):
         scheduler1 = TestScheduler()
-        xs = rx.timer(11)
+        xs = rx3.timer(11)
         xs.subscribe(lambda x: _raise("ex"), scheduler=scheduler1)
 
         self.assertRaises(RxException, scheduler1.start)
 
         scheduler2 = TestScheduler()
-        ys = rx.timer(1, period=None)
+        ys = rx3.timer(1, period=None)
         ys.subscribe(on_completed=lambda: _raise("ex"), scheduler=scheduler2)
 
         self.assertRaises(RxException, scheduler2.start)
@@ -75,7 +75,7 @@ class TestTimer(unittest.TestCase):
         scheduler = TestScheduler()
 
         def create():
-            return rx.timer(duetime=300, period=400)
+            return rx3.timer(duetime=300, period=400)
 
         results = scheduler.start(create)
         assert results.messages == [on_next(500, 0), on_next(900, 1)]
@@ -84,7 +84,7 @@ class TestTimer(unittest.TestCase):
         scheduler = TestScheduler()
 
         def create():
-            return rx.timer(duetime=300, period=300)
+            return rx3.timer(duetime=300, period=300)
 
         results = scheduler.start(create)
         assert results.messages == [on_next(500, 0), on_next(800, 1)]

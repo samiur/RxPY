@@ -2,11 +2,11 @@ import unittest
 from datetime import timedelta
 from typing import Optional
 
-from rx.core import typing
-from rx.disposable import Disposable
-from rx.internal.basic import default_now
-from rx.scheduler.scheduleditem import ScheduledItem
-from rx.scheduler.scheduler import Scheduler
+from rx3.core import typing
+from rx3.disposable import Disposable
+from rx3.internal.basic import default_now
+from rx3.scheduler.scheduleditem import ScheduledItem
+from rx3.scheduler.scheduler import Scheduler
 
 
 class ScheduledItemTestScheduler(Scheduler):

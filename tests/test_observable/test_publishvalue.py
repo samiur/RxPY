@@ -1,8 +1,8 @@
 import unittest
 
-import rx
-from rx import operators as ops
-from rx.testing import TestScheduler, ReactiveTest
+import rx3
+from rx3 import operators as ops
+from rx3.testing import TestScheduler, ReactiveTest
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed
@@ -283,7 +283,7 @@ class TestPublishValue(unittest.TestCase):
             subscribe(650, 800)]
 
     def test_publish_with_initial_value_multiple_connections(self):
-        xs = rx.never()
+        xs = rx3.never()
         ys = xs.pipe(ops.publish_value(1979))
         connection1 = ys.connect()
         connection2 = ys.connect()

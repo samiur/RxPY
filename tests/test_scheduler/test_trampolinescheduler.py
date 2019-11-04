@@ -4,8 +4,8 @@ import unittest
 from datetime import timedelta
 from time import sleep
 
-from rx.scheduler import TrampolineScheduler
-from rx.internal.basic import default_now
+from rx3.scheduler import TrampolineScheduler
+from rx3.internal.basic import default_now
 
 
 class TestTrampolineScheduler(unittest.TestCase):

@@ -17,7 +17,7 @@ class VersionTest(unittest.TestCase):
             project_meta = dict(config.items('project'))
 
         version = None
-        with open(join(root, 'rx', '__init__.py')) as init_py:
+        with open(join(root, 'rx3', '__init__.py')) as init_py:
             for line in init_py:
                 version = match('\\s*__version__\\s*=\\s*[\'"](.*)[\'"]', line)
                 if version is not None:

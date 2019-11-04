@@ -8,7 +8,7 @@ twisted = pytest.importorskip("twisted")
 from twisted.internet import reactor, defer
 from twisted.trial import unittest
 
-from rx.scheduler.eventloop import TwistedScheduler
+from rx3.scheduler.eventloop import TwistedScheduler
 
 
 class TestTwistedScheduler(unittest.TestCase):

@@ -1,5 +1,5 @@
-import rx
-from rx import operators as ops
+import rx3
+from rx3 import operators as ops
 
 a = rx.cold(' ---a0---a1----------------a2-|    ')
 b = rx.cold('    ---b1---b2---|                 ')

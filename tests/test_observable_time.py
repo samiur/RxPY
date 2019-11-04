@@ -1,9 +1,9 @@
 import logging
 
-from rx.testing import ReactiveTest
+from rx3.testing import ReactiveTest
 
 FORMAT = '%(asctime)-15s %(threadName)s %(message)s'
-logging.basicConfig(filename='rx.log', format=FORMAT, level=logging.DEBUG)
+logging.basicConfig(filename='rx3.log', format=FORMAT, level=logging.DEBUG)
 log = logging.getLogger('Rx')
 
 on_next = ReactiveTest.on_next

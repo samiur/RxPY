@@ -1,8 +1,8 @@
 import unittest
 
-import rx
-from rx import operators as ops
-from rx.testing import TestScheduler, ReactiveTest
+import rx3
+from rx3 import operators as ops
+from rx3.testing import TestScheduler, ReactiveTest
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed
@@ -52,7 +52,7 @@ class TestSample(unittest.TestCase):
         scheduler = TestScheduler()
 
         def create():
-            return rx.empty().pipe(ops.sample(0))
+            return rx3.empty().pipe(ops.sample(0))
 
         results = scheduler.start(create)
         assert results.messages == [on_completed(200)]
@@ -62,7 +62,7 @@ class TestSample(unittest.TestCase):
         scheduler = TestScheduler()
 
         def create():
-            return rx.throw(ex).pipe(ops.sample(0))
+            return rx3.throw(ex).pipe(ops.sample(0))
         results = scheduler.start(create)
 
         assert results.messages == [on_error(200, ex)]
@@ -71,6 +71,6 @@ class TestSample(unittest.TestCase):
         scheduler = TestScheduler()
 
         def create():
-            return rx.never().pipe(ops.sample(1))
+            return rx3.never().pipe(ops.sample(1))
         results = scheduler.start(create)
         assert results.messages == []

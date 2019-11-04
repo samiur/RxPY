@@ -1,8 +1,8 @@
 import unittest
 
-import rx
-from rx import operators as _
-from rx.testing import TestScheduler, ReactiveTest
+import rx3
+from rx3 import operators as _
+from rx3.testing import TestScheduler, ReactiveTest
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed
@@ -85,7 +85,7 @@ class TestDo(unittest.TestCase):
             def on_completed():
                 nonlocal completed
                 completed = True
-            return rx.never().pipe(
+            return rx3.never().pipe(
                 _.do_action(on_next=on_next, on_completed=on_completed),
                 )
 
@@ -196,7 +196,7 @@ class TestDo(unittest.TestCase):
 #     saw_error = False
 #     has_completed = False
 #     scheduler.start(create)
-#         return rx.never().do_action(function (x) {
+#         return rx3.never().do_action(function (x) {
 #             i[0] += 1
 #         }, function (e) {
 #             saw_error = True

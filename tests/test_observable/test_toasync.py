@@ -1,7 +1,7 @@
 import unittest
 
-import rx
-from rx.testing import TestScheduler, ReactiveTest
+import rx3
+from rx3.testing import TestScheduler, ReactiveTest
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed
@@ -25,7 +25,7 @@ class TestToAsync(unittest.TestCase):
 
         def create():
             context = Context()
-            return rx.to_async(context.func, scheduler)(42)
+            return rx3.to_async(context.func, scheduler)(42)
 
         res = scheduler.start(create)
 
@@ -40,7 +40,7 @@ class TestToAsync(unittest.TestCase):
             def func():
                 return 0
 
-            return rx.to_async(func, scheduler)()
+            return rx3.to_async(func, scheduler)()
 
         res = scheduler.start(create)
 
@@ -55,7 +55,7 @@ class TestToAsync(unittest.TestCase):
             def func(x):
                 return x
 
-            return rx.to_async(func, scheduler)(1)
+            return rx3.to_async(func, scheduler)(1)
 
         res = scheduler.start(create)
 
@@ -70,7 +70,7 @@ class TestToAsync(unittest.TestCase):
             def func(x, y):
                 return x + y
 
-            return rx.to_async(func, scheduler)(1, 2)
+            return rx3.to_async(func, scheduler)(1, 2)
 
         res = scheduler.start(create)
 
@@ -85,7 +85,7 @@ class TestToAsync(unittest.TestCase):
             def func(x, y, z):
                 return x + y + z
 
-            return rx.to_async(func, scheduler)(1, 2, 3)
+            return rx3.to_async(func, scheduler)(1, 2, 3)
 
         res = scheduler.start(create)
 
@@ -100,7 +100,7 @@ class TestToAsync(unittest.TestCase):
             def func(a, b, c, d):
                 return a + b + c + d
 
-            return rx.to_async(func, scheduler)(1, 2, 3, 4)
+            return rx3.to_async(func, scheduler)(1, 2, 3, 4)
         res = scheduler.start(create)
 
         assert res.messages == [
@@ -115,7 +115,7 @@ class TestToAsync(unittest.TestCase):
         def create():
             def func():
                 raise ex
-            return rx.to_async(func, scheduler)()
+            return rx3.to_async(func, scheduler)()
 
         res = scheduler.start(create)
 
@@ -130,7 +130,7 @@ class TestToAsync(unittest.TestCase):
         def create():
             def func(a):
                 raise ex
-            return rx.to_async(func, scheduler)(1)
+            return rx3.to_async(func, scheduler)(1)
 
         res = scheduler.start(create)
 
@@ -145,7 +145,7 @@ class TestToAsync(unittest.TestCase):
         def create():
             def func(a, b):
                 raise ex
-            return rx.to_async(func, scheduler)(1, 2)
+            return rx3.to_async(func, scheduler)(1, 2)
 
         res = scheduler.start(create)
 
@@ -160,7 +160,7 @@ class TestToAsync(unittest.TestCase):
         def create():
             def func(a, b, c):
                 raise ex
-            return rx.to_async(func, scheduler)(1, 2, 3)
+            return rx3.to_async(func, scheduler)(1, 2, 3)
 
         res = scheduler.start(create)
 
@@ -175,7 +175,7 @@ class TestToAsync(unittest.TestCase):
         def create():
             def func(a, b, c, d):
                 raise ex
-            return rx.to_async(func, scheduler)(1, 2, 3, 4)
+            return rx3.to_async(func, scheduler)(1, 2, 3, 4)
 
         res = scheduler.start(create)
 

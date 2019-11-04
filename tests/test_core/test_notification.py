@@ -1,6 +1,6 @@
-from rx.core.typing import Observer
-from rx.testing import TestScheduler, ReactiveTest
-from rx.core.notification import OnNext, OnError, OnCompleted
+from rx3.core.typing import Observer
+from rx3.testing import TestScheduler, ReactiveTest
+from rx3.core.notification import OnNext, OnError, OnCompleted
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed

@@ -1,8 +1,8 @@
 import unittest
 
-import rx
-from rx import operators as ops
-from rx.testing import TestScheduler, ReactiveTest
+import rx3
+from rx3 import operators as ops
+from rx3.testing import TestScheduler, ReactiveTest
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed
@@ -144,7 +144,7 @@ class TestReduce(unittest.TestCase):
         assert res == [on_next(260, 10), on_completed(260)]
 
     def test_reduce_seed_none_does_not_crash(self):
-        rx.empty().pipe(
+        rx3.empty().pipe(
             ops.reduce(lambda acc, v: v, seed=None)
         ).subscribe()
 

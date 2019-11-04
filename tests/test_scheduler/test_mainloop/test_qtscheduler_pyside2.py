@@ -6,8 +6,8 @@ from time import sleep
 
 QtCore = pytest.importorskip('PySide2.QtCore')
 
-from rx.scheduler.mainloop import QtScheduler
-from rx.internal.basic import default_now
+from rx3.scheduler.mainloop import QtScheduler
+from rx3.internal.basic import default_now
 
 
 @pytest.fixture(scope="module")

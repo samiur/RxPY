@@ -1,5 +1,5 @@
-import rx
-from rx import operators as ops
+import rx3
+from rx3 import operators as ops
 
 """
 Specify the error to be raised in place of the # symbol.

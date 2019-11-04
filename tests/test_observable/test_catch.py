@@ -1,8 +1,8 @@
 import unittest
 
-import rx
-from rx import operators as ops
-from rx.testing import TestScheduler, ReactiveTest
+import rx3
+from rx3 import operators as ops
+from rx3.testing import TestScheduler, ReactiveTest
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed
@@ -31,7 +31,7 @@ class TestCatch(unittest.TestCase):
     def test_catch_never(self):
         scheduler = TestScheduler()
         msgs2 = [on_next(240, 5), on_completed(250)]
-        o1 = rx.never()
+        o1 = rx3.never()
         o2 = scheduler.create_hot_observable(msgs2)
 
         def create():
@@ -85,7 +85,7 @@ class TestCatch(unittest.TestCase):
         scheduler = TestScheduler()
         msgs1 = [on_next(150, 1), on_next(210, 2), on_next(220, 3), on_error(230, ex)]
         o1 = scheduler.create_hot_observable(msgs1)
-        o2 = rx.never()
+        o2 = rx3.never()
         def create():
             return o1.pipe(ops.catch(o2))
 
@@ -117,7 +117,7 @@ class TestCatch(unittest.TestCase):
         o3 = scheduler.create_hot_observable(msgs3)
 
         def create():
-            return rx.catch(o1, o2, o3)
+            return rx3.catch(o1, o2, o3)
 
         results = scheduler.start(create)
         assert results.messages == [on_next(210, 2), on_next(220, 3), on_next(230, 4), on_completed(235)]
@@ -155,7 +155,7 @@ class TestCatch(unittest.TestCase):
                 handler_called[0] = True
                 return o2
 
-            return rx.throw('ex').pipe(ops.catch(handler))
+            return rx3.throw('ex').pipe(ops.catch(handler))
 
         results = scheduler.start(create)
 

@@ -1,8 +1,8 @@
 import unittest
 
-import rx
-from rx import operators as ops
-from rx.testing import TestScheduler, ReactiveTest
+import rx3
+from rx3 import operators as ops
+from rx3.testing import TestScheduler, ReactiveTest
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed
@@ -200,7 +200,7 @@ class TestReplay(unittest.TestCase):
 
     def test_replay_count_multiple_connections(self):
 
-        xs = rx.never()
+        xs = rx3.never()
         ys = xs.pipe(ops.replay(None, 3))
         connection1 = ys.connect()
         connection2 = ys.connect()
@@ -437,7 +437,7 @@ class TestReplay(unittest.TestCase):
         assert xs.subscriptions == [subscribe(300, 400), subscribe(500, 550), subscribe(650, 800)]
 
     def test_replay_time_multiple_connections(self):
-        xs = rx.never()
+        xs = rx3.never()
         ys = xs.pipe(ops.replay(window=100))
         connection1 = ys.connect()
         connection2 = ys.connect()

@@ -5,11 +5,11 @@ import threading
 from datetime import timedelta
 from time import sleep
 
-from rx.disposable import Disposable
-from rx.scheduler import ImmediateScheduler
-from rx.internal.basic import default_now
-from rx.internal.constants import DELTA_ZERO
-from rx.internal.exceptions import WouldBlockException
+from rx3.disposable import Disposable
+from rx3.scheduler import ImmediateScheduler
+from rx3.internal.basic import default_now
+from rx3.internal.constants import DELTA_ZERO
+from rx3.internal.exceptions import WouldBlockException
 
 
 class TestImmediateScheduler(unittest.TestCase):

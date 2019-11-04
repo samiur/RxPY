@@ -4,8 +4,8 @@ import unittest
 from datetime import timedelta
 from time import sleep
 
-from rx.scheduler.mainloop import TkinterScheduler
-from rx.internal.basic import default_now
+from rx3.scheduler.mainloop import TkinterScheduler
+from rx3.internal.basic import default_now
 
 
 tkinter = pytest.importorskip("tkinter")

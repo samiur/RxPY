@@ -1,10 +1,10 @@
 import unittest
 
-from rx import Observable, return_value, throw, empty, create
-from rx.testing import TestScheduler, ReactiveTest
-from rx.disposable import SerialDisposable
+from rx3 import Observable, return_value, throw, empty, create
+from rx3.testing import TestScheduler, ReactiveTest
+from rx3.disposable import SerialDisposable
 
-from rx.operators import map, map_indexed
+from rx3.operators import map, map_indexed
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed

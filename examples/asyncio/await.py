@@ -1,5 +1,5 @@
 import asyncio
-import rx
+import rx3
 
 
 stream = rx.just("Hello, world!")

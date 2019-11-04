@@ -1,10 +1,10 @@
 import unittest
 
-import rx
-from rx import operators as ops
-from rx.core import ConnectableObservable, Observable
-from rx.core.typing import Observer
-from rx.testing import TestScheduler, ReactiveTest
+import rx3
+from rx3 import operators as ops
+from rx3.core import ConnectableObservable, Observable
+from rx3.core.typing import Observer
+from rx3.testing import TestScheduler, ReactiveTest
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed
@@ -131,9 +131,9 @@ class TestPublish(unittest.TestCase):
                     disconnected[0] = True
                 return func
 
-            return rx.create(create)
+            return rx3.create(create)
 
-        xs = rx.defer(factory)
+        xs = rx3.defer(factory)
 
         subject = MySubject()
         conn = ConnectableObservable(xs, subject)
@@ -418,7 +418,7 @@ class TestPublish(unittest.TestCase):
             subscribe(650, 800)]
 
     def test_publish_multipleconnections(self):
-        xs = rx.never()
+        xs = rx3.never()
         ys = xs.pipe(ops.publish())
         connection1 = ys.connect()
         connection2 = ys.connect()

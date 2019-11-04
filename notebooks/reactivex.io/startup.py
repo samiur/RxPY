@@ -1,19 +1,19 @@
 # Helpers.
 # Run this cell always after kernel restarts. All other cells are autonomous.
 from __future__ import print_function
-import rx
+import rx3
 import time
 import inspect
 import logging
 from random import randint
-from rx.testing import marbles
+from rx3.testing import marbles
 
 logging.basicConfig(format="%(threadName)s:%(message)s")
 log = logging.getLogger("Rx")
 log.setLevel(logging.WARNING)
 
 sleep, now = time.sleep, time.time
-O = rx.Observable
+O = rx3.Observable
 
 ts_glob = 0 # global start time
 
@@ -109,9 +109,9 @@ def cur_thread():
     #return '%s of %s' % (_cur(), threads)
     return _cur()
 
-from rx.scheduler import new_thread_scheduler, timeout_scheduler
-from rx.subject import Subject
-from rx.testing import marbles, dump
+from rx3.scheduler import new_thread_scheduler, timeout_scheduler
+from rx3.subject import Subject
+from rx3.testing import marbles, dump
 def marble_stream(s):
     return O.from_marbles(s).to_blocking()
 

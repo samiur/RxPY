@@ -1,9 +1,9 @@
 import sys
 
-import rx
-from rx import operators as ops
-from rx.subject import Subject
-from rx.scheduler.mainloop import QtScheduler
+import rx3
+from rx3 import operators as ops
+from rx3.subject import Subject
+from rx3.scheduler.mainloop import QtScheduler
 
 try:
     from PySide2 import QtCore

@@ -1,8 +1,8 @@
 import unittest
 
-import rx
-from rx import operators as ops
-from rx.testing import TestScheduler, ReactiveTest
+import rx3
+from rx3 import operators as ops
+from rx3.testing import TestScheduler, ReactiveTest
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed
@@ -27,7 +27,7 @@ class TestDistinctUntilChanged(unittest.TestCase):
         scheduler = TestScheduler()
 
         def create():
-            return rx.never().pipe(ops.distinct_until_changed())
+            return rx3.never().pipe(ops.distinct_until_changed())
         results = scheduler.start(create)
 
         assert results.messages == []

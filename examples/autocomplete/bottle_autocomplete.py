@@ -8,9 +8,9 @@ import gevent
 from geventwebsocket import WebSocketError
 from geventwebsocket.handler import WebSocketHandler
 import json, requests
-import rx
-from rx.subject import Subject
-from rx.scheduler.eventloop import GEventScheduler
+import rx3
+from rx3.subject import Subject
+from rx3.scheduler.eventloop import GEventScheduler
 
 class WikiFinder:
     tmpl = 'http://en.wikipedia.org/w/api.php'

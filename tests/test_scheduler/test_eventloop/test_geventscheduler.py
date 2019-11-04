@@ -3,7 +3,7 @@ import unittest
 
 from datetime import datetime, timedelta
 
-from rx.scheduler.eventloop import GEventScheduler
+from rx3.scheduler.eventloop import GEventScheduler
 
 
 gevent = pytest.importorskip("gevent")

@@ -1,8 +1,8 @@
 import unittest
 
-import rx
-from rx import operators as ops
-from rx.testing import TestScheduler, ReactiveTest, is_prime
+import rx3
+from rx3 import operators as ops
+from rx3.testing import TestScheduler, ReactiveTest, is_prime
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed
@@ -504,7 +504,7 @@ class TestFlatMap(unittest.TestCase):
 
         def factory():
             def projection(x):
-                return rx.interval(10).pipe(ops.map_indexed(lambda a, b: x), ops.take(x))
+                return rx3.interval(10).pipe(ops.map_indexed(lambda a, b: x), ops.take(x))
             return xs.pipe(ops.flat_map(projection))
         results = scheduler.start(factory)
 

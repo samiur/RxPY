@@ -1,8 +1,8 @@
 import unittest
 
-import rx
-from rx import operators as ops
-from rx.testing import TestScheduler, ReactiveTest
+import rx3
+from rx3 import operators as ops
+from rx3.testing import TestScheduler, ReactiveTest
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed
@@ -15,14 +15,14 @@ created = ReactiveTest.created
 
 class TestAsObservable(unittest.TestCase):
     def test_as_observable_hides(self):
-        some_observable = rx.empty()
+        some_observable = rx3.empty()
         assert some_observable.pipe(ops.as_observable()) != some_observable
 
     def test_as_observable_never(self):
         scheduler = TestScheduler()
 
         def create():
-            return rx.never().pipe(ops.as_observable())
+            return rx3.never().pipe(ops.as_observable())
         results = scheduler.start(create)
 
         assert results.messages == []
@@ -74,7 +74,7 @@ class TestAsObservable(unittest.TestCase):
                 return disp.dispose()
             return func
 
-        xs = rx.create(subscribe)
+        xs = rx3.create(subscribe)
         xs.pipe(ops.as_observable())
         assert not subscribed[0]
 

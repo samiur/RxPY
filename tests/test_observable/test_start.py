@@ -2,8 +2,8 @@ import unittest
 import asyncio
 from asyncio import Future
 
-import rx
-from rx.testing import TestScheduler, ReactiveTest
+import rx3
+from rx3.testing import TestScheduler, ReactiveTest
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed
@@ -27,7 +27,7 @@ class TestStart(unittest.TestCase):
                 future.set_result(42)
                 return future
 
-            source = rx.start_async(func)
+            source = rx3.start_async(func)
 
             def on_next(x):
                 success[0] = (42 == x)
@@ -47,7 +47,7 @@ class TestStart(unittest.TestCase):
                 future.set_exception(Exception(str(42)))
                 return future
 
-            source = rx.start_async(func)
+            source = rx3.start_async(func)
 
             def on_error(ex):
                 success[0] = (str(42) == str(ex))
@@ -64,7 +64,7 @@ class TestStart(unittest.TestCase):
         def create():
             def func():
                 done[0] = True
-            return rx.start(func, scheduler)
+            return rx3.start(func, scheduler)
 
         res = scheduler.start(create)
 
@@ -81,7 +81,7 @@ class TestStart(unittest.TestCase):
         def create():
             def func():
                 return 1
-            return rx.start(func, scheduler)
+            return rx3.start(func, scheduler)
         res = scheduler.start(create)
 
         assert res.messages == [
@@ -96,7 +96,7 @@ class TestStart(unittest.TestCase):
         def create():
             def func():
                 raise ex
-            return rx.start(func, scheduler)
+            return rx3.start(func, scheduler)
         res = scheduler.start(create)
 
         assert res.messages == [

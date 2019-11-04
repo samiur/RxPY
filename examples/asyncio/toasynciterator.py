@@ -1,10 +1,10 @@
 import asyncio
 from asyncio import Future
 
-import rx
-from rx import operators as ops
-from rx import Observable
-from rx.scheduler.eventloop import AsyncIOScheduler
+import rx3
+from rx3 import operators as ops
+from rx3 import Observable
+from rx3.scheduler.eventloop import AsyncIOScheduler
 
 
 def to_async_iterable():

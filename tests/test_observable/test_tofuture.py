@@ -2,9 +2,9 @@
 import unittest
 import asyncio
 
-import rx
-from rx.internal.exceptions import SequenceContainsNoElementsError
-from rx.testing import ReactiveTest
+import rx3
+from rx3.internal.exceptions import SequenceContainsNoElementsError
+from rx3.testing import ReactiveTest
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed
@@ -22,7 +22,7 @@ class TestToFuture(unittest.TestCase):
 
         async def go():
             nonlocal result
-            source = rx.return_value(42)
+            source = rx3.return_value(42)
             result = await source
 
         loop.run_until_complete(go())
@@ -34,7 +34,7 @@ class TestToFuture(unittest.TestCase):
 
         async def go():
             nonlocal result
-            source = rx.from_([40, 41, 42])
+            source = rx3.from_([40, 41, 42])
             result = await source
 
         loop.run_until_complete(go())
@@ -47,7 +47,7 @@ class TestToFuture(unittest.TestCase):
 
         async def go():
             nonlocal result
-            source = rx.throw(error)
+            source = rx3.throw(error)
             try:
                 result = await source
             except Exception as ex:
@@ -62,7 +62,7 @@ class TestToFuture(unittest.TestCase):
 
         async def go():
             nonlocal result
-            source = rx.empty()
+            source = rx3.empty()
             result = await source
 
         self.assertRaises(SequenceContainsNoElementsError, loop.run_until_complete, go())

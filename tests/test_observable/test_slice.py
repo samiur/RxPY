@@ -1,6 +1,6 @@
 import unittest
 
-from rx.testing import TestScheduler, ReactiveTest
+from rx3.testing import TestScheduler, ReactiveTest
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed

@@ -1,8 +1,8 @@
 import unittest
 
-import rx
-from rx import operators as ops
-from rx.testing import TestScheduler, ReactiveTest
+import rx3
+from rx3 import operators as ops
+from rx3.testing import TestScheduler, ReactiveTest
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed
@@ -27,7 +27,7 @@ class TestGenerate(unittest.TestCase):
         scheduler = TestScheduler()
 
         def create():
-            return rx.generate(0,
+            return rx3.generate(0,
                                lambda x: x <= 3,
                                lambda x: x + 1,
                                )
@@ -46,7 +46,7 @@ class TestGenerate(unittest.TestCase):
         ex = 'ex'
 
         def create():
-            return rx.generate(0,
+            return rx3.generate(0,
                                lambda x: _raise('ex'),
                                lambda x: x + 1,
                                )
@@ -59,7 +59,7 @@ class TestGenerate(unittest.TestCase):
         ex = 'ex'
 
         def create():
-            return rx.generate(0,
+            return rx3.generate(0,
                                lambda x: True,
                                lambda x: _raise(ex),
                                )
@@ -74,7 +74,7 @@ class TestGenerate(unittest.TestCase):
         ex = 'ex'
 
         def create():
-            return rx.generate(0,
+            return rx3.generate(0,
                                lambda x: True,
                                lambda x: x + 1,
                                )
@@ -86,7 +86,7 @@ class TestGenerate(unittest.TestCase):
         scheduler = TestScheduler()
 
         def create():
-            return rx.generate(0,
+            return rx3.generate(0,
                                lambda x: x <= 3,
                                lambda x: x + 1,
                                ) \

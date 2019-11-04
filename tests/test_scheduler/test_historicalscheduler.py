@@ -2,8 +2,8 @@ import unittest
 
 from datetime import datetime, timedelta
 
-from rx.scheduler import HistoricalScheduler
-from rx.internal.constants import UTC_ZERO
+from rx3.scheduler import HistoricalScheduler
+from rx3.internal.constants import UTC_ZERO
 
 
 def assert_equals(first, second):

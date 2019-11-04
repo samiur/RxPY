@@ -1,8 +1,8 @@
 from datetime import datetime
 import unittest
 
-from rx import operators as ops
-from rx.testing import TestScheduler, ReactiveTest
+from rx3 import operators as ops
+from rx3.testing import TestScheduler, ReactiveTest
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed

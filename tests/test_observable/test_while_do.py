@@ -1,8 +1,8 @@
 import unittest
 
-import rx
-from rx import operators as ops
-from rx.testing import TestScheduler, ReactiveTest
+import rx3
+from rx3 import operators as ops
+from rx3.testing import TestScheduler, ReactiveTest
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed
@@ -75,7 +75,7 @@ class TestWhile(unittest.TestCase):
                 o.on_next(1)
                 o.on_completed()
                 return lambda: None
-            return rx.create(subscribe).pipe(ops.while_do(predicate))
+            return rx3.create(subscribe).pipe(ops.while_do(predicate))
         results = scheduler.start(create=create)
 
         assert results.messages == [on_next(200, 1) for _ in range(99)] + [on_completed(200)]

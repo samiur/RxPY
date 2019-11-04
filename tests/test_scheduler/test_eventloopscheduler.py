@@ -5,9 +5,9 @@ import threading
 from datetime import timedelta
 from time import sleep
 
-from rx.scheduler import EventLoopScheduler
-from rx.internal import DisposedException
-from rx.internal.basic import default_now
+from rx3.scheduler import EventLoopScheduler
+from rx3.internal import DisposedException
+from rx3.internal.basic import default_now
 
 
 class TestEventLoopScheduler(unittest.TestCase):

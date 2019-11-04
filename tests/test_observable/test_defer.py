@@ -1,7 +1,7 @@
 import unittest
 
-import rx
-from rx.testing import TestScheduler, ReactiveTest
+import rx3
+from rx3.testing import TestScheduler, ReactiveTest
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed
@@ -35,7 +35,7 @@ class TestDefer(unittest.TestCase):
                     on_completed(200)
                 )
                 return xs[0]
-            return rx.defer(defer)
+            return rx3.defer(defer)
 
         results = scheduler.start(create)
         assert results.messages == [on_next(300, 200), on_completed(400)]
@@ -54,7 +54,7 @@ class TestDefer(unittest.TestCase):
                 xs[0] = scheduler.create_cold_observable(
                         on_next(100, scheduler.clock), on_error(200, ex))
                 return xs[0]
-            return rx.defer(defer)
+            return rx3.defer(defer)
 
         results = scheduler.start(create)
 
@@ -75,7 +75,7 @@ class TestDefer(unittest.TestCase):
                     on_next(200, invoked[0]),
                     on_next(1100, 1000))
                 return xs[0]
-            return rx.defer(defer)
+            return rx3.defer(defer)
 
         results = scheduler.start(create)
         assert results.messages == [on_next(300, 200), on_next(400, 1)]
@@ -92,7 +92,7 @@ class TestDefer(unittest.TestCase):
                 invoked[0] += 1
                 raise Exception(ex)
 
-            return rx.defer(defer)
+            return rx3.defer(defer)
         results = scheduler.start(create)
 
         assert results.messages == [on_error(200, ex)]

@@ -1,9 +1,9 @@
 import unittest
 
-import rx
-from rx import operators as ops
-from rx.core import Observable
-from rx.testing import TestScheduler, ReactiveTest
+import rx3
+from rx3 import operators as ops
+from rx3.core import Observable
+from rx3.testing import TestScheduler, ReactiveTest
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed
@@ -62,7 +62,7 @@ class TestSkipUntil(unittest.TestCase):
     def test_skip_until_never_next(self):
         scheduler = TestScheduler()
         r_msgs = [on_next(150, 1), on_next(225, 2), on_completed(250)]
-        l = rx.never()
+        l = rx3.never()
         r = scheduler.create_hot_observable(r_msgs)
 
         def create():
@@ -75,7 +75,7 @@ class TestSkipUntil(unittest.TestCase):
         ex = 'ex'
         scheduler = TestScheduler()
         r_msgs = [on_next(150, 1), on_error(225, ex)]
-        l = rx.never()
+        l = rx3.never()
         r = scheduler.create_hot_observable(r_msgs)
 
         def create():
@@ -89,7 +89,7 @@ class TestSkipUntil(unittest.TestCase):
         l_msgs = [on_next(150, 1), on_next(210, 2), on_next(220, 3),
                   on_next(230, 4), on_next(240, 5), on_completed(250)]
         l = scheduler.create_hot_observable(l_msgs)
-        r = rx.never()
+        r = rx3.never()
 
         def create():
             return l.pipe(ops.skip_until(r))
@@ -100,7 +100,7 @@ class TestSkipUntil(unittest.TestCase):
     def test_skip_until_never_empty(self):
         scheduler = TestScheduler()
         r_msgs = [on_next(150, 1), on_completed(225)]
-        l = rx.never()
+        l = rx3.never()
         r = scheduler.create_hot_observable(r_msgs)
 
         def create():
@@ -111,8 +111,8 @@ class TestSkipUntil(unittest.TestCase):
 
     def test_skip_until_never_never(self):
         scheduler = TestScheduler()
-        l = rx.never()
-        r = rx.never()
+        l = rx3.never()
+        r = rx3.never()
 
         def create():
             return l.pipe(ops.skip_until(r))

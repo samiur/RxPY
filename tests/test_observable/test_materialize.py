@@ -1,8 +1,8 @@
 import unittest
 
-import rx
-from rx import operators as _
-from rx.testing import TestScheduler, ReactiveTest
+import rx3
+from rx3 import operators as _
+from rx3.testing import TestScheduler, ReactiveTest
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed
@@ -19,7 +19,7 @@ class TestMaterialize(unittest.TestCase):
         scheduler = TestScheduler()
 
         def create():
-            return rx.never().pipe(_.materialize())
+            return rx3.never().pipe(_.materialize())
 
         results = scheduler.start(create)
         assert results.messages == []
@@ -69,7 +69,7 @@ class TestMaterialize(unittest.TestCase):
         scheduler = TestScheduler()
 
         def create():
-            return rx.never().pipe(_.materialize(), _.dematerialize())
+            return rx3.never().pipe(_.materialize(), _.dematerialize())
 
         results = scheduler.start(create)
         assert results.messages == []

@@ -1,8 +1,8 @@
 import unittest
 from datetime import timedelta
 
-from rx.internal.constants import DELTA_ZERO, UTC_ZERO
-from rx.scheduler.scheduler import Scheduler
+from rx3.internal.constants import DELTA_ZERO, UTC_ZERO
+from rx3.scheduler.scheduler import Scheduler
 
 
 class TestScheduler(unittest.TestCase):

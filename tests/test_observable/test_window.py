@@ -1,8 +1,8 @@
 import unittest
 
-import rx
-from rx import operators as ops
-from rx.testing import TestScheduler, ReactiveTest
+import rx3
+from rx3 import operators as ops
+from rx3.testing import TestScheduler, ReactiveTest
 
 on_next = ReactiveTest.on_next
 on_completed = ReactiveTest.on_completed
@@ -28,7 +28,7 @@ class TestWindow(unittest.TestCase):
             def closing():
                 curr = window[0]
                 window[0] += 1
-                return rx.timer(curr * 100)
+                return rx3.timer(curr * 100)
 
             def mapper(w, i):
                 return w.pipe(ops.map(lambda x: str(i) + ' ' + str(x)))
@@ -59,7 +59,7 @@ class TestWindow(unittest.TestCase):
             def closing():
                 curr = window[0]
                 window[0] += 1
-                return rx.timer(curr * 100)
+                return rx3.timer(curr * 100)
 
             def mapper(w, i):
                 return w.pipe(ops.map(lambda x: str(i) + ' ' + str(x)))
@@ -91,7 +91,7 @@ class TestWindow(unittest.TestCase):
             def closing():
                 curr = window[0]
                 window[0] += 1
-                return rx.timer(curr * 100)
+                return rx3.timer(curr * 100)
 
             def mapper(w, i):
                 return w.pipe(ops.map(lambda x: str(i) + ' ' + str(x)))
@@ -148,7 +148,7 @@ class TestWindow(unittest.TestCase):
 
         def create():
             def closing():
-                return rx.throw(ex)
+                return rx3.throw(ex)
 
             def mapper(w, i):
                 return w.pipe(ops.map(lambda x: str(i) + ' ' + str(x)))
@@ -176,7 +176,7 @@ class TestWindow(unittest.TestCase):
 
         def create():
             def closing(x):
-                return rx.timer(x)
+                return rx3.timer(x)
 
             def mapper(w, i):
                 return w.pipe(ops.map(lambda x: str(i) + ' ' + str(x)))
@@ -237,7 +237,7 @@ class TestWindow(unittest.TestCase):
 
         def create():
             def closing(x):
-                return rx.timer(x)
+                return rx3.timer(x)
 
             def mapper(w, i):
                 return w.pipe(ops.map(lambda x: str(i) + ' ' + str(x)))
@@ -267,7 +267,7 @@ class TestWindow(unittest.TestCase):
 
         def create():
             def closing(x):
-                return rx.timer(x)
+                return rx3.timer(x)
 
             def mapper(w, i):
                 return w.pipe(ops.map(lambda x: str(i) + ' ' + str(x)))
@@ -298,7 +298,7 @@ class TestWindow(unittest.TestCase):
 
         def create():
             def closing(x):
-                return rx.timer(x)
+                return rx3.timer(x)
 
             def mapper(w, i):
                 return w.pipe(ops.map(lambda x: str(i) + ' ' + str(x)))

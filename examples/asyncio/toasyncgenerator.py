@@ -1,10 +1,10 @@
 import asyncio
 from asyncio import Future
 
-import rx
-from rx import operators as ops
-from rx.scheduler.eventloop import AsyncIOScheduler
-from rx.core import Observable
+import rx3
+from rx3 import operators as ops
+from rx3.scheduler.eventloop import AsyncIOScheduler
+from rx3.core import Observable
 
 
 def to_async_generator(sentinel=None):

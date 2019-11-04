@@ -2,7 +2,7 @@ import asyncio
 from asyncio import Future
 import unittest
 
-import rx
+import rx3
 
 
 class TestFromFuture(unittest.TestCase):
@@ -16,7 +16,7 @@ class TestFromFuture(unittest.TestCase):
             future = Future()
             future.set_result(42)
 
-            source = rx.from_future(future)
+            source = rx3.from_future(future)
 
             def on_next(x):
                 success[0] = x == 42
@@ -43,7 +43,7 @@ class TestFromFuture(unittest.TestCase):
             future = Future()
             future.set_exception(error)
 
-            source = rx.from_future(future)
+            source = rx3.from_future(future)
 
             def on_next(x):
                 success[0] = False
@@ -68,7 +68,7 @@ class TestFromFuture(unittest.TestCase):
             future = Future()
             future.set_result(42)
 
-            source = rx.from_future(future)
+            source = rx3.from_future(future)
 
             def on_next(x):
                 success[0] = False

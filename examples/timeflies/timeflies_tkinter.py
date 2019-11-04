@@ -1,9 +1,9 @@
 from tkinter import Tk, Label, Frame
 
-import rx
-from rx import operators as ops
-from rx.subject import Subject
-from rx.scheduler.mainloop import TkinterScheduler
+import rx3
+from rx3 import operators as ops
+from rx3.subject import Subject
+from rx3.scheduler.mainloop import TkinterScheduler
 
 
 def main():

@@ -1,6 +1,6 @@
-import rx
-from rx import scheduler as ccy
-from rx import operators as ops
+import rx3
+from rx3 import scheduler as ccy
+from rx3 import operators as ops
 
 source0 = rx.cold('a-----d---1--------4-|', timespan=0.1)
 source1 = rx.cold('--b-c-------2---3-|   ', timespan=0.1)

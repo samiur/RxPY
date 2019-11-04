@@ -58,13 +58,13 @@ setup(
     setup_requires=pytest_runner,
     tests_require=['pytest>=4.6.1', 'pytest-asyncio>=0.10.0', 'coverage>=4.5.3'],
 
-    package_data={'rx': ['py.typed']},
-    packages=['rx', 'rx.internal', 'rx.core', 'rx.core.abc',
-              'rx.core.operators', 'rx.core.operators.connectable',
-              'rx.core.observable', 'rx.core.observer',
-              'rx.scheduler', 'rx.scheduler.eventloop', 'rx.scheduler.mainloop',
-              'rx.operators', 'rx.disposable', 'rx.subject',
-              'rx.testing'],
-    package_dir={'rx': 'rx'},
+    package_data={'rx3': ['py.typed']},
+    packages=['rx3', 'rx3.internal', 'rx3.core', 'rx3.core.abc',
+              'rx3.core.operators', 'rx3.core.operators.connectable',
+              'rx3.core.observable', 'rx3.core.observer',
+              'rx3.scheduler', 'rx3.scheduler.eventloop', 'rx3.scheduler.mainloop',
+              'rx3.operators', 'rx3.disposable', 'rx3.subject',
+              'rx3.testing'],
+    package_dir={'rx3': 'rx3'},
     include_package_data=True
 )

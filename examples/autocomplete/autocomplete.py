@@ -15,9 +15,9 @@ from tornado.httputil import url_concat
 from tornado.escape import json_decode
 from tornado import ioloop
 
-from rx import operators as ops
-from rx.subject import Subject
-from rx.scheduler.eventloop import IOLoopScheduler
+from rx3 import operators as ops
+from rx3.subject import Subject
+from rx3.scheduler.eventloop import IOLoopScheduler
 
 scheduler = IOLoopScheduler(ioloop.IOLoop.current())
 
