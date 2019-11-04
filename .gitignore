@@ -78,3 +78,4 @@ _build
 
 # Type checkers
 .pyre
+.python-version
