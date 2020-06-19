@@ -39,7 +39,7 @@ setup(
         'url',
         'download_url'
     )},
-    zip_safe=True,
+    zip_safe=False,
     python_requires='>=3.6.0',
 
     # https://pypi.python.org/pypi?%3Aaction=list_classifiers
